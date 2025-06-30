@@ -10,7 +10,7 @@ ENV ASPNETCORE_ENVIRONMENT=Development
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Uttt.Micro.Libro.csproj", "."]
+COPY ["Uttt.Micro.Libro/Uttt.Micro.Libro.csproj", "Uttt.Micro.Libro/"]
 RUN dotnet restore "./Uttt.Micro.Libro.csproj"
 COPY . .
 RUN dotnet build "./Uttt.Micro.Libro.csproj" -c $BUILD_CONFIGURATION -o /app/build
