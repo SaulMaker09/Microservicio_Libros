@@ -12,7 +12,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 
 var testConnection = builder.Configuration.GetConnectionString("DefaultsConnections");
-Console.WriteLine("CADENA DE CONEXIÓN CARGADA ====> " + testConnection);
+Console.WriteLine("CADENA DE CONEXIÃ“N CARGADA ====> " + testConnection);
 
 builder.Services.AddCustomServices(builder.Configuration);
 
@@ -26,14 +26,20 @@ builder.Services.AddCors(options =>
     });
 });
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(int.Parse(port));
+});
+
 
 var app = builder.Build();
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
     app.MapOpenApi();
-}
+
 // Configure the HTTP request pipeline.
 
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
