@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8085
+EXPOSE 10000
+
 
 # Configura la app para escuchar en todos los interfaces
 ENV ASPNETCORE_URLS=http://+:8080
