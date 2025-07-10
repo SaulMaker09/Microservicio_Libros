@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // Puerto de tu app React
+        policy.WithOrigins("https://libreria-v.vercel.app") // Puerto de tu app React
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
